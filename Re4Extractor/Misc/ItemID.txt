@@ -1,0 +1,323 @@
+[Item ID]
+Hex | Dec | Name
+-----------------
+0x00-0    :Magnum_Ammo
+0x01-1    :Hand_Grenade
+0x02-2    :Incendiary_Grenade
+0x03-3    :Matilda
+0x04-4    :Handgun_Ammo
+0x05-5    :First_Aid_Spray
+0x06-6    :Green_Herb
+0x07-7    :Rifle_Ammo
+0x08-8    :White_Egg
+0x09-9    :Brown_Egg
+0x0A-10   :Golden_Egg
+0x0B-11   :Aaa1
+0x0C-12   :Plage_Sample
+0x0D-13   :Krauser_Knife
+0x0E-14   :Flash_Grenade
+0x0F-15   :Salazar_Family_Insignia
+0x10-16   :BowGun
+0x11-17   :BowGun_Bolts
+0x12-18   :Green_HerbX2
+0x13-19   :Green_HerbX3
+0x14-20   :Mixed_Herbs_GR
+0x15-21   :Mixed_Herbs_GRY
+0x16-22   :Mixed_Herbs_GY
+0x17-23   :Rocket_Launcher_SP
+0x18-24   :Shotgun_Ammo
+0x19-25   :Red_Herb
+0x1A-26   :HndCannon_Ammo
+0x1B-27   :HourGlass_W_GoldDecor
+0x1C-28   :Yellow_Herb
+0x1D-29   :Stone_Tablet
+0x1E-30   :Lion_Ornament
+0x1F-31   :Goat_Ornament
+0x20-32   :TMP_Ammo
+0x21-33   :Punisher
+0x22-34   :Punisher_W_Silencer
+0x23-35   :HandGun
+0x24-36   :HandGun_W_Silencer
+0x25-37   :Red9
+0x26-38   :Red9_W_Stock
+0x27-39   :BlackTail
+0x28-40   :BlackTail_W_Silencer
+0x29-41   :Broken_Butterfly
+0x2A-42   :Killer7
+0x2B-43   :Killer7_W_Silencer
+0x2C-44   :ShotGun
+0x2D-45   :Striker
+0x2E-46   :Rifle
+0x2F-47   :Rifle_SemiAuto
+0x30-48   :TMP
+0x31-49   :Activation_Key_Blue
+0x32-50   :TMP_W_Stock
+0x33-51   :Activation_Key_Red
+0x34-52   :Chicago_Typewriter_Inf
+0x35-53   :Rocket_Launcher
+0x36-54   :Mine_Thrower
+0x37-55   :HandCannon
+0x38-56   :Combat_Knife
+0x39-57   :Serpent_Ornament
+0x3A-58   :MoonStone_RightHalf
+0x3B-59   :Insignia_Key
+0x3C-60   :Round_Insignia
+0x3D-61   :False_Eye
+0x3E-62   :Custom_TMP
+0x3F-63   :Silencer_HndGun
+0x40-64   :Silencer_Unknown
+0x41-65   :PRL_412
+0x42-66   :Stock_Red9
+0x43-67   :Stock_TMP
+0x44-68   :Scope_Rifle
+0x45-69   :Scope_SemiAuto
+0x46-70   :Mine_Ammo
+0x47-71   :ShotGun_Unknown
+0x48-72   :Capture_Luis_Sera
+0x49-73   :Target_Practice
+0x4A-74   :Luis_Memo1
+0x4B-75   :Castellan_Memo
+0x4C-76   :Female_instruder
+0x4D-77   :Butler_Memo
+0x4E-78   :Sample_Retrieved
+0x4F-79   :Ritual_Preparation
+0x50-80   :Luis_Memo2
+0x51-81   :Rifle_SemiAuto_W_InfraredScope
+0x52-82   :Krauser_Bow
+0x53-83   :Chicago_TypeWriter_Regular
+0x54-84   :Treasuer_Map_Castle
+0x55-85   :Treasuer_Map_Island
+0x56-86   :Velvet_Blue
+0x57-87   :Spinel
+0x58-88   :Pearl_Pendant
+0x59-89   :Brass_Pocket_Watch
+0x5A-90   :Elegant_Headdress
+0x5B-91   :Antigue_Pipe
+0x5C-92   :Gold_Bangle_W_Pearls
+0x5D-93   :Amber_Ring
+0x5E-94   :Beerstein
+0x5F-95   :Green_CatsEye1
+0x60-96   :Red_CatsEye
+0x61-97   :Yellow_CatsEye
+0x62-98   :Beerstein_G
+0x63-99   :Beerstein_
+0x64-100   :Beerstein_Y
+0x65-101   :Beerstein_GR
+0x66-102   :Beerstein_GY
+0x67-103   :Beerstein_RY
+0x68-104   :Beerstein_GRY
+0x69-105   :Moonstone_LeftHalf
+0x6A-106   :Chicago_TypeWriter_Ammo
+0x6B-107   :Rifle_Scope
+0x6C-108   :Rifle_SemiAuto_Scope
+0x6D-109   :Infinite_Launcher
+0x6E-110   :King_Grail
+0x6F-111   :Queen_Grail
+0x70-112   :Staff_Of_Royalty
+0x71-113   :Gold_Bars
+0x72-114   :Arrows
+0x73-115   :Bonus_Time
+0x74-116   :Emergency_Lock_KeyCard
+0x75-117   :Bonus_Points
+0x76-118   :Green_CatsEye2
+0x77-119   :Ruby
+0x78-120   :Treasure_Box_S
+0x79-121   :Treasure_Box_L
+0x7A-122   :Blue_Moonstone
+0x7B-123   :Mine_Key
+0x7C-124   :Attache_CaseS
+0x7D-125   :Attache_CaseM
+0x7E-126   :Attache_CaseL
+0x7F-127   :Attache_CaseXL
+0x80-128   :Golden_Sword
+0x81-129   :Iron_Key
+0x82-130   :Stone_Of_Scrifice
+0x83-131   :Storage_Room_KeyCard
+0x84-132   :Freezer_Room_KeyCard
+0x85-133   :Item_Panther
+0x86-134   :Item_Serpent
+0x87-135   :Item_Eagle
+0x88-136   :Jet_Ski_Key
+0x89-137   :Dirty_Pearl_Pendant
+0x8A-138   :Dirty_Brass_PocketWatch
+0x8B-139   :OldKey
+0x8C-140   :CampKey
+0x8D-141   :Dynamite
+0x8E-142   :LiftKey
+0x8F-143   :Gold_Bangle
+0x90-144   :Elegant_Perfume_Bottle
+0x91-145   :Mirror_W_PearleRubies
+0x92-146   :Waste_Disposal_KeyCard
+0x93-147   :Elegant_Chessboard
+0x94-148   :RiotGun
+0x95-149   :Black_Bass
+0x96-150   :Hourglass_W_GoldDecor
+0x97-151   :BlackBass_L
+0x98-152   :Illuminados_Pendant
+0x99-153   :Rifle_Infrared_Scope
+0x9A-154   :Crown
+0x9B-155   :Crown_Jewel
+0x9C-156   :Royal_Insignia
+0x9D-157   :Crown_Insignia
+0x9E-158   :Crown_WithInsignia
+0x9F-159   :Salazar_Family_Crown
+0xA0-160   :Rifle_Ammo_Infrared
+0xA1-161   :Emerald
+0xA2-162   :BottleCaps
+0xA3-163   :GalleryKey
+0xA4-164   :Emblem_RightHalf
+0xA5-165   :Emblem_LeftHalf
+0xA6-166   :Hexagonal_Emblem
+0xA7-167   :Castle_GateKey
+0xA8-168   :Mixed_Herb_RY
+0xA9-169   :TreasureMap_Village
+0xAA-170   :Scope_MineThrower
+0xAB-171   :MineThrower_WithScope
+0xAC-172   :Playing_Minual1
+0xAD-173   :Ashley_Info
+0xAE-174   :Playing_Minual2
+0xAF-175   :Alert_Order
+0xB0-176   :Blue_Medallions_Info
+0xB1-177   :Chief_Note
+0xB2-178   :Closure_Church
+0xB3-179   :Anonymous_Letter
+0xB4-180   :Playing_Manual3
+0xB5-181   :Third_Party
+0xB6-182   :Two_Routes
+0xB7-183   :Village_LastDefense
+0xB8-184   :ButterflyLamp
+0xB9-185   :Green_Eye
+0xBA-186   :Red_Eye
+0xBB-187   :Blue_Eye
+0xBC-188   :ButterflyLamb_G
+0xBD-189   :ButterflyLamb_r
+0xBE-190   :ButterflyLamb_b
+0xBF-191   :ButterflyLamb_GR
+0xC0-192   :ButterflyLamb_GB
+0xC1-193   :ButterflyLamb_RB
+0xC2-194   :ButterflyLamb_RGB
+0xC3-195   :PrisonKey
+0xC4-196   :PlatinumSword
+0xC5-197   :Infrared_Scope
+0xC6-198   :Elegant_Mask
+0xC7-199   :Green_Gem
+0xC8-200   :Red_Gem
+0xC9-201   :Purple_Gem
+0xCA-202   :Elegant_Mask_G
+0xCB-203   :Elegant_Mask_R
+0xCC-204   :Elegant_Mask_B
+0xCD-205   :Elegant_Mask_GR
+0xCE-206   :Elegant_Mask_GB
+0xCF-207   :Elegant_Mask_RB
+0xD0-208   :Elegant_Mask_GRB
+0xD1-209   :Golden_Lynx
+0xD2-210   :Green_Stone_OfJudgement
+0xD3-211   :Red_Ston_OfFaith
+0xD4-212   :Blue_Ston_OfTreason
+0xD5-213   :Golden_Lynx_G
+0xD6-214   :Golden_Lynx_R
+0xD7-215   :Golden_Lynx_B
+0xD8-216   :Golden_Lynx_GR
+0xD9-217   :Golden_Lynx_GB
+0xDA-218   :Golden_Lynx_RB
+0xDB-219   :Golden_Lynx_GRB
+0xDC-220   :Leon_W_Rocket_Launcher
+0xDD-221   :Leon_W_ShotGun
+0xDE-222   :Leon_W_HandGun
+0xDF-223   :Ashley_Graham
+0xE0-224   :Luis_Sera
+0xE1-225   :Don_Jose
+0xE2-226   :Don_Diego
+0xE3-227   :Don_Esteban
+0xE4-228   :Don_Manuel
+0xE5-229   :Dr_Salvador
+0xE6-230   :Merchant
+0xE7-231   :Sealot_W_Scythe
+0xE8-232   :Sealot_W_Shield
+0xE9-233   :Sealot_W_BowGun
+0xEA-234   :Leader_Zealot
+0xEB-235   :Soldier_W_Dynamite
+0xEC-236   :Soldier_W_StunRod
+0xED-237   :Soldier_W_Hammer
+0xEE-238   :Isable
+0xEF-239   :Maria
+0xF0-240   :Ada_Wong
+0xF1-241   :Bellla_Sisters
+0xF2-242   :Don_Pedro
+0xF3-243   :J_J
+0xF4-244   :Ada_Letter
+0xF5-245   :Luis_Memo3
+0xF6-246   :Paper_AirPlane
+0xF7-247   :Our_Plan
+0xF8-248   :Luis_Memo4
+0xF9-249   :Krauser_Note
+0xFA-250   :Luis_Memo5
+0xFB-251   :Our_Mission
+0xFC-252   :Aaa2
+0xFD-253   :Aaa3
+0xFE-254   :Tactical_Vest
+0xFF-255   :Aaa4
+0x100-256  :Punisher_Unknown2
+0x101-257  :HandGun_Unknown2
+0x102-258  :ShotGun_Unknown2
+0x103-259  :Mine_Thrower_Unknown
+0x104-260  :HandCannon_Unknown
+0x105-261  :MineThrower_WithScope_Unknown
+0x106-262  :Mission_Directives1
+0x107-263  :Mission_Directives2
+0x108-264  :Mission_Directives3
+0x109-265  :Mission_Directives4
+0x10A-266  :Mission_Directives5
+0x10B-267  :Mission_Treasure_Map1
+0x10C-268  :Mission_Treasure_Map2
+0x10D-269  :Mission_Treasure_Map3
+0x10E-270  :Mission_Treasure_Map4
+0x10F-271  :Mission_Treasure_Map5
+
+;----------------------------------
+[Weapons Can be Equipped]
+Hex	|| Dec	   || 	Describtion
+
+0x23	35   	   :HandGun						
+0x24	36   	   :HandGun_W_Silencer            
+0x25	37   	   :Red9                          
+0x26	38   	   :Red9_W_Stock                  
+0x03	3    	   :Matilda                       
+0x21	33   	   :Punisher                      
+0x40	64   	   :Silencer_Unknown              
+0x27	39   	   :BlackTail                     
+0x29	41   	   :Broken_Butterfly              
+0x2C	44   	   :ShotGun                       
+0x2D	45   	   :Striker                       
+0x94	148  	   :RiotGun                       
+0x2E	46   	   :Rifle                         
+0x6B	107  	   :Rifle_Scope                   
+0x99	153  	   :Rifle_Infrared_Scope          
+0x2F	47   	   :Rifle_SemiAuto                
+0x6C	108  	   :Rifle_SemiAuto_Scope          
+0x51	81   	   :Rifle_SemiAuto_W_InfraredScope
+0x30	48   	   :TMP                           
+0x32	50   	   :TMP_W_Stock                   
+0x3E	62   	   :Custom_TMP                    
+0x36	54   	   :Mine_Thrower                  
+0xAB	171  	   :MineThrower_WithScope         
+0x34	52   	   :Chicago_Typewriter_Inf        
+0x2A	42   	   :Killer7                       
+0x37	55   	   :HandCannon                    
+0x47	71   	   :ShotGun_Unknown               
+0x53	83   	   :Chicago_TypeWriter_Regular    
+0x41	65   	   :PRL_412                       
+0x28	40   	   :BlackTail_W_Silencer
+0x35	53   	   :Rocket_Launcher   
+0x17	23   	   :Rocket_Launcher_SP
+0x6D	109   	   :Infinite_Launcher 
+0x38	56   	   :Combat_Knife      
+0x01	1   	   :Hand_Grenade      
+0x02	2   	   :Incendiary_Grenade
+0x0E	13   	   :Flash_Grenade     
+0x0008 	2048       :Unknown           
+0x08	8   	   :White_Egg         
+0x09	9  	   	   :Brown_Egg         
+0x0A	10   	   :Golden_Egg        
+0x52	82   	   :Krauser_Bow       
+0x10	16   	   :BowGun            

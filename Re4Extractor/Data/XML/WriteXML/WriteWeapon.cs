@@ -11,7 +11,7 @@
 
                new XComment("Max Quantity value is [999], above that the Game will be bugged.\n" +
                "You can Change The ID to Any Item can Player Equipped.\n" +
-               "All values are in [Decimal type] check ReadMe.txt for item ID"),
+               "All values are in [Decimal type] check ItemID.txt for item ID"),
 
                new XElement("Class",
                           new XAttribute("Type", "Item"),
@@ -124,7 +124,7 @@
 
                new XComment("Max Price value is [327670], above that the Game will be bugged.\n" +
                "You can Change The ID to Any Item can Player Equipped.\n" +
-               "All values are in [Decimal type] check ReadMe.txt for item ID"),
+               "All values are in [Decimal type] check ItemID.txt for item ID"),
 
                new XElement("Class",
                           new XAttribute("Type", "Item"),
@@ -192,7 +192,8 @@
 
                new XComment("You can Change The ID to Any Item can Player Equipped.\n" +
                "Between each [DummyID] is a new Merchant.\n" +
-               "If you changed [DummyID] the Merchant will show the next Available Upgrade.\n"),
+               "If you changed [DummyID] the Merchant will show the next Available Upgrade.\n" +
+               "Check ItemID.txt for item ID"),
 
                new XElement("Class",
                           new XAttribute("Type", "Item"),
