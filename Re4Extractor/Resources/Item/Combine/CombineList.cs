@@ -5,58 +5,53 @@
         private static readonly string path = Directory.GetCurrentDirectory();
         private static readonly FileStream fs = new($@"{path}\bio4.exe", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
         private static readonly BinaryReader br = new(fs);
-
+        private static readonly int itemCombineTableRow = 75;
 
         public List<int> Pos = new();
 
 
-        public List<ushort> GetID1()
+        public List<ushort> GetItemCombineID1()
         {
             br.BaseStream.Position = (int)Enums.UsefulLocations.ItemsToCombine;
 
             List<ushort> id1 = new();
 
-            for (int i = 0; i < 75; i++)
+            for (int i = 0; i < itemCombineTableRow; i++)
             {
-                int itemPos = (int)br.BaseStream.Position;
-                Pos.Add(itemPos);
-
-                ushort itemID1 = br.ReadUInt16();
-                id1.Add(itemID1);
+                Pos.Add((int)br.BaseStream.Position);
+                id1.Add(br.ReadUInt16());
                 br.BaseStream.Seek(4, SeekOrigin.Current);
             }
 
             return id1;
         }
         
-        public List<ushort> GetID2()
+        public List<ushort> GetItemCombineID2()
         {
             br.BaseStream.Position = (int)Enums.UsefulLocations.ItemsToCombine;
 
             List<ushort> id2 = new();
 
-            for (int i = 0; i < 75; i++)
+            for (int i = 0; i < itemCombineTableRow; i++)
             {
                 br.BaseStream.Seek(2, SeekOrigin.Current);
-                ushort itemID2 = br.ReadUInt16();
-                id2.Add(itemID2);
+                id2.Add(br.ReadUInt16());
                 br.BaseStream.Seek(2, SeekOrigin.Current);
             }
 
             return id2;
         }
 
-        public List<ushort> GetResult()
+        public List<ushort> GetItemCombineResult()
         {
             br.BaseStream.Position = (int)Enums.UsefulLocations.ItemsToCombine;
 
             List<ushort> result = new();
 
-            for(int i = 0; i < 75; i++)
+            for(int i = 0; i < itemCombineTableRow; i++)
             {
                 br.BaseStream.Seek(4, SeekOrigin.Current);
-                ushort itemResult = br.ReadUInt16();
-                result.Add(itemResult);
+                result.Add(br.ReadUInt16());
             }
 
             return result;

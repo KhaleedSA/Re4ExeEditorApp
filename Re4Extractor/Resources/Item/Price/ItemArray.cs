@@ -17,8 +17,8 @@
             {
                 iArr[i] = new ItemArray
                 {
-                    Name = Enum.GetName(typeof(Enums.ItemId), itList.GetID()[i]),
-                    Id = itList.GetID()[i],
+                    Name = Enum.GetName(typeof(Enums.ItemId), itList.GetItemPriceID()[i]),
+                    Id = itList.GetItemPriceID()[i],
                     Offset = itList.Pos[i],
                     Price = itList.Price[i],
                     OTP = itList.OTP[i]

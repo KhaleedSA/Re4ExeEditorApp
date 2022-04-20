@@ -11,14 +11,14 @@
         public List<int> Price = new();
         public List<short> OTP = new();
 
-        public List<ushort> GetID()
+        public List<ushort> GetItemPriceID()
         {
-
+            int itemPriceTableRow = 130;
             br.BaseStream.Position = (int)Enums.UsefulLocations.ItemsPrice_Leon;
 
             List<ushort> id = new();
 
-            for (int i = 0; i < 130; i++)
+            for (int i = 0; i < itemPriceTableRow; i++)
             {
                 int itemPos = (int)br.BaseStream.Position;
                 Pos.Add(itemPos);

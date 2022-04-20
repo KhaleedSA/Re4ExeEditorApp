@@ -16,8 +16,8 @@
             {
                 stArr[i] = new StockArray
                 {
-                    Name = Enum.GetName(typeof(Enums.ItemId), stList.GetID()[i]),
-                    Id = stList.GetID()[i],
+                    Name = Enum.GetName(typeof(Enums.ItemId), stList.GetItemStockID()[i]),
+                    Id = stList.GetItemStockID()[i],
                     Offset = stList.Pos[i],
                     Amount = stList.Amount[i],
                 };

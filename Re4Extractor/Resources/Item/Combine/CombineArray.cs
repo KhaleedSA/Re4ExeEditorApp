@@ -17,9 +17,9 @@
             {
                 coArr[i] = new CombineArray()
                 {
-                    Id1 = comList.GetID1()[i],
-                    Id2 = comList.GetID2()[i],
-                    Result = comList.GetResult()[i],
+                    Id1 = comList.GetItemCombineID1()[i],
+                    Id2 = comList.GetItemCombineID2()[i],
+                    Result = comList.GetItemCombineResult()[i],
                     Offset = comList.Pos[i]
                 };
             }

@@ -10,13 +10,14 @@
         public List<int> Pos = new();
         public List<ushort> Amount = new();
 
-        public List<ushort> GetID()
+        public List<ushort> GetItemStockID()
         {
+            int itemStockTableRow = 125;
             br.BaseStream.Position = (int)Enums.UsefulLocations.ItemsInStock;
 
             List<ushort> listID = new();
 
-            for (int i = 0; i < 125; i++)
+            for (int i = 0; i < itemStockTableRow; i++)
             {
                 int pos = (int)br.BaseStream.Position;
                 Pos.Add(pos);

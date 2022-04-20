@@ -5,7 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <ApplicationIcon>Resident_Evil_4_Ultimate_HD_Edition_Exe_Extractor.ico</ApplicationIcon>
+    <ApplicationIcon>Misc\Resident_Evil_4_Ultimate_HD_Edition_Exe_Extractor.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
