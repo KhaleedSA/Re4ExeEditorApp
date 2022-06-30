@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Data.XML.WriteXML
+﻿namespace Re4ExeEditor.Data.XML.WriteXML
 {
     public class WriteWeapon
     {
@@ -9,7 +9,7 @@
             XDocument StatsData = new XDocument(
                new XDeclaration("1.0", "utf-8", "yes"),
 
-               new XComment("Max Quantity value is [999], above that the Game will be bugged.\n" +
+               new XComment("Max Quantity value is [999], above that the Game Could be bugged.\n" +
                "You can Change The ID to Any Item can Player Equipped.\n" +
                "All values are in [Decimal type] check ItemID.txt for item ID"),
 
@@ -20,19 +20,17 @@
                    from wpStArr in WeaponArray.GetWeaponStats()
                    select new XElement("wClass",
                           new XElement("Weapon",
-                               new XAttribute("Name", "ToDo"),
+                               new XAttribute("Name", wpStArr.WeaponStatsIDName),
                                new XAttribute("ID", wpStArr.WeaponStatsID),
                                new XAttribute("Offset", wpStArr.WeaponStatsPos.ToString("X2")),
                           new XElement("Stats",
                           new XElement("Model",
-                               new XAttribute("Name", "ToDo"),
                                new XAttribute("ID", wpStArr.WeaponMdLoad)),
                           new XElement("Attachment",
-                               new XAttribute("Name", "ToDo"),
                                new XAttribute("ID", wpStArr.WeaponAttachment)),
                           new XElement("Ammo",
-                               new XAttribute("Name", "ToDo"),
-                               new XAttribute("ID", wpStArr.WeaponAmmoType)),
+                               new XAttribute("Name", wpStArr.WeaponAmmoName),
+                               new XAttribute("ID", wpStArr.WeaponAmmoID)),
                           new XElement("Capacity",
                           new XElement("Lvl-1",
                                new XAttribute("Quantity", wpStArr.Capacity1)),
@@ -66,7 +64,7 @@
                    from wpMxArr in WeaponArray.GetWeaponMaxLvl()
                    select new XElement("wClass",
                           new XElement("Weapon",
-                               new XAttribute("Name", "ToDo"),
+                               new XAttribute("Name", wpMxArr.WeaponMaxLVlIDName),
                                new XAttribute("ID", wpMxArr.WeaponMaxLvlID),
                                new XAttribute("Offset", wpMxArr.WeaponMaxLvlPos.ToString("X2")),
                           new XElement("Lvl",
@@ -87,8 +85,8 @@
             XDocument FirePowerData = new XDocument(
                new XDeclaration("1.0", "utf-8", "yes"),
 
-               new XComment("Max Fire Power value is [99.9], above that it will set to [99.9].\n" +
-               "All Values are on [float value]."),
+               new XComment("Max Fire Power value is [99.9], above that the Game Could be bugged.\n" +
+               "All Values are [float type]."),
 
                new XElement("Class",
                           new XAttribute("Type", "Item"),
@@ -122,7 +120,7 @@
             XDocument upgradePriceData = new XDocument(
                new XDeclaration("1.0", "utf-8", "yes"),
 
-               new XComment("Max Price value is [327670], above that the Game will be bugged.\n" +
+               new XComment("Max Price value is [327670], above that the Game Could be bugged.\n" +
                "You can Change The ID to Any Item can Player Equipped.\n" +
                "All values are in [Decimal type] check ItemID.txt for item ID"),
 

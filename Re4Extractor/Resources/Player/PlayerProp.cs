@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Resources.Player
+﻿namespace Re4ExeEditor.Resources.Player
 {
     public class PlayerProp
     {

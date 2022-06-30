@@ -1,8 +1,7 @@
-﻿Title = "Re4_Exe_Extractor by Khaled-SA";
+﻿Title = "Re4_Exe_Editor by Khaled-SA";
 
 WriteXml writeXml = new();
 ReadXml readXml = new();
-WeaponList weaponList = new WeaponList();
 
 string path = $@"{Directory.GetCurrentDirectory()}\bio4.exe";
 string creatPath = Directory.GetCurrentDirectory();
@@ -18,7 +17,7 @@ try
         string userInput = ReadLine().Trim();
         bool looping = true;
 
-        br.BaseStream.Position = (int)Enums.UsefulLocations.GameVestion;
+        br.BaseStream.Position = (int)Enums.UsefulLocations.GameVersion;
         long exeVersion = br.ReadInt64();
 
         fs.Flush();
@@ -30,17 +29,20 @@ try
             {
                 Directory.CreateDirectory($@"{creatPath}\bio4");
                 Directory.CreateDirectory($@"{creatPath}\bio4\Player");
-                Directory.CreateDirectory($@"{creatPath}\bio4\Item");
+                Directory.CreateDirectory($@"{creatPath}\bio4\Item\Prices");
                 Directory.CreateDirectory($@"{creatPath}\bio4\Weapons");
                 writeXml.WriteAllXml();
                 WriteLine("Xml has been extracted.");
                 looping = false;
+                ReadKey();
             }
             else if (userInput == "2" && File.Exists(path))
             {
                 readXml.ReadAllXml();
                 WriteLine("All Values has been written into exe.");
                 looping = false;
+                ReadKey();
+
             }
             else if (userInput == "3")
             {

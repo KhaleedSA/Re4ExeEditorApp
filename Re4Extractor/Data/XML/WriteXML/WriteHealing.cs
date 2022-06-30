@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Data.XML.WriteXML
+﻿namespace Re4ExeEditor.Data.XML.WriteXML
 {
     public class WriteHealing
     {

@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Resources.Item.Stock
+﻿namespace Re4ExeEditor.Resources.Item.Stock
 {
     public class StockArray
     {
@@ -16,7 +16,7 @@
             {
                 stArr[i] = new StockArray
                 {
-                    Name = Enum.GetName(typeof(Enums.ItemId), stList.GetItemStockID()[i]),
+                    Name = Enum.GetName(typeof(Enums.ItemID), stList.GetItemStockID()[i]),
                     Id = stList.GetItemStockID()[i],
                     Offset = stList.Pos[i],
                     Amount = stList.Amount[i],

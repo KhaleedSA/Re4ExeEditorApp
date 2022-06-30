@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Data.XML.WriteXML
+﻿namespace Re4ExeEditor.Data.XML.WriteXML
 {
     public class WriteXml
     {
@@ -9,14 +9,13 @@
 
         public void WriteAllXml()
         {
-                
-
             try
             {
                 writePlayer.Player();
                 writeItem.ItemPrice();
                 writeItem.ItemCombine();
                 writeItem.ItemStock();
+                writeItem.ItemStack();
                 writeHealing.Healing();
                 writeWeapon.WeaponsStats();
                 writeWeapon.WeaponsMaxLvl();

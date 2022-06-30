@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Data.XML
+﻿namespace Re4ExeEditor.Data.XML
 {
     public class Logger
     {

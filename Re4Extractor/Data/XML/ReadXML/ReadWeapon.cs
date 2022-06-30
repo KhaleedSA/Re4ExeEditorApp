@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Data.XML.ReadXML
+﻿namespace Re4ExeEditor.Data.XML.ReadXML
 {
     public class ReadWeapon
     {

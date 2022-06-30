@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Resources.Weapon
+﻿namespace Re4ExeEditor.Resources.Weapon
 {
     public class WeaponList
     {
@@ -7,12 +7,16 @@
         private static readonly BinaryReader br = new(fs);
         private static readonly Helper helper = new();
 
+        #region List
 
         #region Weapon Stats
         public List<int> StPos = new();
+        public List<string?> StName = new();
         public List<short> MdLoad = new();
         public List<short> Attachment = new();
-        public List<byte> AmmoType = new();
+        public List<string?> AttachmentName = new();
+        public List<byte> AmmoID = new();
+        public List<string?> AmmoName = new();
 
         // Weapon Capacity Quantity for each Lvl upgrade
         public List<ushort> CpQuantity_Lvl_1 = new();
@@ -33,7 +37,7 @@
         #endregion
 
         #region Fire Power
-        public List<string> FpName = new();
+        public List<string?> FpName = new();
         public List<int> FpPos = new();
         public List<float> FpLvl_2 = new();
         public List<float> FpLvl_3 = new();
@@ -56,7 +60,7 @@
         public List<int> UpFiringRatePrice_1 = new();
         public List<int> UpFiringRatePrice_2 = new();
         public List<int> UpFiringRatePrice_3 = new();
-        
+
         public List<int> UpReloadSpeedPrice_1 = new();
         public List<int> UpReloadSpeedPrice_2 = new();
         public List<int> UpReloadSpeedPrice_3 = new();
@@ -76,27 +80,72 @@
         public List<byte> AvailFr = new();
         public List<byte> AvailRs = new();
         public List<byte> AvailCp = new();
+        #endregion 
         #endregion
-
 
         // Read Weapon Stats and Capacity Table
         public List<ushort> GetWeaponStatsID()
         {
-            int StatsTableRow = 43;
+            long StatsTableRow = 43;
             br.BaseStream.Position = (int)Enums.UsefulLocations.WeapStats;
-
+            
             List<ushort> stWeaponID = new();
 
             for (int i = 0; i < StatsTableRow; i++)
             {
                 StPos.Add((int)br.BaseStream.Position);
 
-                stWeaponID.Add(br.ReadUInt16());
-                helper.CheckItemName(checkID:0);
+                ushort readWeaponID = br.ReadUInt16();
+                helper.CheckItemName(checkID: (Enums.ItemID)readWeaponID);
+                stWeaponID.Add(readWeaponID);
+                StName.Add(helper.CheckWeaponName(CheckID: (Enums.WeaponID)readWeaponID));
 
                 MdLoad.Add(br.ReadInt16());
                 Attachment.Add(br.ReadInt16());
-                AmmoType.Add(br.ReadByte());
+
+                byte readAmmoID = br.ReadByte();
+
+                switch (readAmmoID)
+                {
+                    case (byte)Enums.AmmoID.Magnum:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.Magnum));
+                        break;
+                    case (byte)Enums.AmmoID.HandGun:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.HandGun));
+                        break;
+                    case (byte)Enums.AmmoID.Rifle:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.Rifle));
+                        break;
+                    case (byte)Enums.AmmoID.BowGun:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.BowGun));
+                        break;
+                    case (byte)Enums.AmmoID.ShotGun:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.ShotGun));
+                        break;
+                    case (byte)Enums.AmmoID.HandCannon:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.HandCannon));
+                        break;
+                    case (byte)Enums.AmmoID.TMP:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.TMP));
+                        break;
+                    case (byte)Enums.AmmoID.Mine:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.Mine));
+                        break;
+                    case (byte)Enums.AmmoID.Chicago:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.Chicago));
+                        break;
+                    case (byte)Enums.AmmoID.Krauser_Bow:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.Krauser_Bow));
+                        break;
+                    case (byte)Enums.AmmoID.Null:
+                        AmmoName.Add(Enum.GetName(typeof(Enums.AmmoID), Enums.AmmoID.Null));
+                        break;
+                    default:
+                        AmmoName.Add("Unknown");
+                        break;
+                }
+
+                AmmoID.Add(readAmmoID);
                 br.BaseStream.Seek(1, SeekOrigin.Current);
                 CpQuantity_Lvl_1.Add(br.ReadUInt16());
                 CpQuantity_Lvl_2.Add(br.ReadUInt16());
@@ -122,8 +171,9 @@
             {
                 PosMaxLvl.Add((int)br.BaseStream.Position);
 
-                mlWeaponID.Add(br.ReadUInt16());
-                helper.CheckItemName(checkID:0);
+                ushort id = br.ReadUInt16();
+                mlWeaponID.Add(id);
+                helper.CheckItemName(checkID: (Enums.ItemID)id);
 
                 FpMaxLvl.Add(br.ReadByte());
                 FrMaxLvl.Add(br.ReadByte());
@@ -146,65 +196,7 @@
             {
                 int firePowerPos = (int)br.BaseStream.Position;
                 FpPos.Add((int)br.BaseStream.Position);
-
-                switch (firePowerPos)
-                {
-                    case (int)Enums.CustomFirePowerLocation.Punisher:
-                        FpName.Add("Punisher");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.HandGun:
-                        FpName.Add("HandGun");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.Red9:
-                        FpName.Add("Red9");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.BlackTail:
-                        FpName.Add("BlackTail");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.Broken_Butterfly:
-                        FpName.Add("Broken_Butterfly");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.Killer7:
-                        FpName.Add("Killer7");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.ShotGun:
-                        FpName.Add("ShotGun");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.Striker:
-                        FpName.Add("Striker");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.Rifle:
-                        FpName.Add("Rifle");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.Rifle_SemiAuto:
-                        FpName.Add("Rifle_SemiAuto");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.TMP:
-                        FpName.Add("TMP");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.Chicago_TypeWriter:
-                        FpName.Add("Chicago_TypeWriter");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.HandCannon:
-                        FpName.Add("HandCannon");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.Matilda:
-                        FpName.Add("Matilda");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.Krauser_Bow:
-                        FpName.Add("Krauser_Bow");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.RiotGun:
-                        FpName.Add("RiotGun");
-                        break;
-                    case (int)Enums.CustomFirePowerLocation.BowGun:
-                        FpName.Add("BowGun");
-                        break;
-                    default:
-                        FpName.Add("Unknown");
-                        break;
-                }
-
+                FpName.Add(helper.CheckWeaponLocation(CheckID: (Enums.CustomFPLocation)firePowerPos));
                 fpLvl_1.Add(br.ReadSingle());
                 FpLvl_2.Add(br.ReadSingle());
                 FpLvl_3.Add(br.ReadSingle());
@@ -228,9 +220,9 @@
             for (int i = 0; i < upPriceTableRow; i++)
             {
                 UpPosPrice.Add((int)br.BaseStream.Position);
-
-                upWeaponIDPrice.Add(br.ReadUInt16());
-                helper.CheckItemName(checkID: 0);
+                ushort readUpWeaponnIDPrice = br.ReadUInt16();
+                helper.CheckItemName(checkID: (Enums.ItemID)readUpWeaponnIDPrice);
+                upWeaponIDPrice.Add(readUpWeaponnIDPrice);
 
                 #region Read Fire Power Price
                 int upFirePowerPrice_1 = br.ReadUInt16();
@@ -369,13 +361,14 @@
             int availUPTableRow = 108;
             br.BaseStream.Position = (int)Enums.UsefulLocations.WeapAvailableUp;
 
-            List<ushort> availableWeaponID = new();
+            List<ushort> availWeaponID = new();
 
             for (int i = 0; i < availUPTableRow; i++)
             {
                 AvailPos.Add((int)br.BaseStream.Position);
-                availableWeaponID.Add(br.ReadUInt16());
-                helper.CheckItemName(checkID: 0);
+                ushort readAvailWeaponID = br.ReadUInt16();
+                helper.CheckItemName(checkID: (Enums.ItemID)readAvailWeaponID);
+                availWeaponID.Add(readAvailWeaponID);
                 AvailFp.Add(br.ReadByte());
                 AvailFr.Add(br.ReadByte());
                 AvailRs.Add(br.ReadByte());
@@ -383,7 +376,7 @@
                 br.BaseStream.Seek(2, SeekOrigin.Current);
             }
 
-            return availableWeaponID;
+            return availWeaponID;
         }
     }
 }

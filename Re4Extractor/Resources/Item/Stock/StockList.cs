@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Resources.Item.Stock
+﻿namespace Re4ExeEditor.Resources.Item.Stock
 {
     public class StockList
     {

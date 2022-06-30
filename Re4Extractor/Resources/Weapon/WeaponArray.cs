@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Resources.Weapon
+﻿namespace Re4ExeEditor.Resources.Weapon
 {
     public class WeaponArray
     {
@@ -6,11 +6,13 @@
 
         #region Weapon Stats
         public string? WeaponStatsIDName { get; set; }
+
+        public string? WeaponAmmoName { get; set; }
         public int WeaponStatsPos { get; set; }
         public ushort WeaponStatsID { get; set; }
         public short WeaponMdLoad { get; set; }
         public short WeaponAttachment { get; set; }
-        public byte WeaponAmmoType { get; set; }
+        public byte WeaponAmmoID { get; set; }
         public ushort Capacity1 { get; set; }
         public ushort Capacity2 { get; set; }
         public ushort Capacity3 { get; set; }
@@ -121,10 +123,12 @@
                 wpStArr[i] = new WeaponArray
                 {
                     WeaponStatsID = wpList.GetWeaponStatsID()[i],
+                    WeaponStatsIDName = wpList.StName[i],
                     WeaponStatsPos = wpList.StPos[i],
                     WeaponMdLoad = wpList.MdLoad[i],
                     WeaponAttachment = wpList.Attachment[i],
-                    WeaponAmmoType = wpList.AmmoType[i],
+                    WeaponAmmoID = wpList.AmmoID[i],
+                    WeaponAmmoName = wpList.AmmoName[i],
                     Capacity1 = wpList.CpQuantity_Lvl_1[i],
                     Capacity2 = wpList.CpQuantity_Lvl_2[i],
                     Capacity3 = wpList.CpQuantity_Lvl_3[i],
@@ -147,6 +151,7 @@
                 weMxArr[i] = new WeaponArray
                 {
                     WeaponMaxLvlID = wpList.GetMaxLvlID()[i],
+                    WeaponMaxLVlIDName = Enum.GetName(typeof(Enums.ItemID), wpList.GetMaxLvlID()[i]),
                     WeaponMaxLvlPos = wpList.PosMaxLvl[i],
                     WeaponFpMaxLvl = wpList.FpMaxLvl[i],
                     WeaponFrMaxLvl = wpList.FrMaxLvl[i],
@@ -187,7 +192,7 @@
             {
                 weUpPriceArr[i] = new WeaponArray
                 {
-                    UpNamePrice = Enum.GetName(typeof(Enums.ItemId), wpList.GetWeaponUpgradePrice()[i]),
+                    UpNamePrice = Enum.GetName(typeof(Enums.ItemID), wpList.GetWeaponUpgradePrice()[i]),
                     UpIDPrice = wpList.GetWeaponUpgradePrice()[i],
                     UpPosPrice = wpList.UpPosPrice[i],
 
@@ -227,7 +232,7 @@
             {
                 weAvailArr[i] = new WeaponArray
                 {
-                    AvailName = Enum.GetName(typeof(Enums.ItemId), wpList.GetAvailableID()[i]),
+                    AvailName = Enum.GetName(typeof(Enums.ItemID), wpList.GetAvailableID()[i]),
                     AvailId = wpList.GetAvailableID()[i],
                     AvailPos = wpList.AvailPos[i],
                     AvailFirePower = wpList.AvailFp[i],

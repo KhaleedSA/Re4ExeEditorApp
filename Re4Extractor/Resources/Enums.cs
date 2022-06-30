@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Resources
+﻿namespace Re4ExeEditor.Resources
 {
     public class Enums
     {
@@ -31,7 +31,7 @@
         }
         public enum UsefulLocations
         {
-            GameVestion = 0x7212FC,
+            GameVersion = 0x7212FC,
             PlayerHealth = 0x3614D8,
             WeapStats = 0x721A58,
             WeapMaxLvl = 0x721E10,
@@ -43,7 +43,7 @@
             ItemsPrice_Leon = 0x812080,
             ItemsPrice_Ada = 0x812398
         }
-        public enum ItemId
+        public enum ItemID
         {
             Magnum_Ammo,
             Hand_Grenade,
@@ -319,14 +319,14 @@
             Mission_Treasure_Map5,
             DummyID = 65535
         }
-        public enum AmmoId
+        public enum AmmoID
         {
             Magnum = 0x00,
             HandGun = 0x04,
             Rifle = 0x07,
             BowGun = 0x11,
             ShotGun = 0x18,
-            HndCannon = 0x1A,
+            HandCannon = 0x1A,
             TMP = 0x20,
             Mine = 0x46,
             Chicago = 0x6A,
@@ -379,7 +379,7 @@
             MineThrower_WithScope = 0xAB,
             Unknown = 2048
         }
-        public enum CustomFirePowerLocation
+        public enum CustomFPLocation
         {
             Punisher = 0x7FE534,
             HandGun = 0x7FE550,
@@ -398,6 +398,29 @@
             Krauser_Bow = 0x7FE828,
             RiotGun = 0x7FE8B4,
             BowGun = 0x7FEA58
+        }
+
+        public enum AmmoStackLocation
+        {
+            Unknown0 = 0x3041D8,
+            AllExplosives = 0x3041E4,
+            HandGun = 0x3041F0,
+            Magnum = 0x30421C,
+            ShotGun = 0x304264,
+            Rifle = 0x3042B2,
+            Chicago = 0x3042DB,
+            TMP = 0x304307,
+            HandCannon = 0x304333,
+            Mine = 0x30437B,
+            BowGun = 0x3043A3,
+            Arrows = 0x3043CF,
+            AllHealing = 0x304407,
+            Unknown1 = 0x30442B,
+            Unknown2 = 0x30444F,
+            Unknown3 = 0x30445B,
+            Unknown4 = 0x304467,
+            Unknown5 = 0x304473,
+            Unknown6 = 0x30447F
         }
     }
 }

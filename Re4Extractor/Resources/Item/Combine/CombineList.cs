@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Resources.Item.Combine
+﻿namespace Re4ExeEditor.Resources.Item.Combine
 {
     public class CombineList
     {

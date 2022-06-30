@@ -1,30 +1,63 @@
-﻿namespace Re4ExeExtractor.Data.XML.ReadXML
+﻿namespace Re4ExeEditor.Data.XML.ReadXML
 {
     public class ReadItem
     {
         private static readonly string path = Directory.GetCurrentDirectory();
         private static readonly FileStream fs = new($@"{path}\bio4.exe", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
         private static readonly BinaryWriter bw = new(fs);
-        private static readonly XmlTextReader xmReadPrice = new($@"{path}\bio4\Item\Price.xml");
+        private static readonly XmlTextReader xmReadLeonPrice = new($@"{path}\bio4\Item\Prices\Leon.xml");
+        private static readonly XmlTextReader xmReadAdaPrice = new($@"{path}\bio4\Item\Prices\Ada.xml");
+        private static readonly XmlTextReader xmReadAmmoStack = new($@"{path}\bio4\Item\AmmoStack.xml");
         private static readonly XmlTextReader xmReadCombine = new($@"{path}\bio4\Item\Combine.xml");
-        private static readonly XmlTextReader xmReadStock = new($@"{path}\bio4\Item\Stock.xml");
+        private static readonly XmlTextReader xmReadStock = new($@"{path}\bio4\Item\ItemStock.xml");
         private readonly int fixedValue = 655350;
+        private readonly short fixedValueStack = 999;
+
         public void ItemPrice()
         {
             bw.BaseStream.Position = (int)Enums.UsefulLocations.ItemsPrice_Leon;
 
-            while (xmReadPrice.Read())
+            while (xmReadLeonPrice.Read())
             {
-                if (xmReadPrice.NodeType == XmlNodeType.Element && xmReadPrice.Name == "Item")
+                if (xmReadLeonPrice.NodeType == XmlNodeType.Element && xmReadLeonPrice.Name == "Item")
                 {
-                    ushort id = Convert.ToUInt16(xmReadPrice.GetAttribute("ID"));
+                    ushort id = Convert.ToUInt16(xmReadLeonPrice.GetAttribute("ID"));
                     bw.Write(id);
                 }
 
-                if (xmReadPrice.NodeType == XmlNodeType.Element && xmReadPrice.Name == "Value")
+                if (xmReadLeonPrice.NodeType == XmlNodeType.Element && xmReadLeonPrice.Name == "Value")
                 {
-                    int price = Convert.ToInt32(xmReadPrice.GetAttribute("Price"));
-                    byte otp = Convert.ToByte(xmReadPrice.GetAttribute("OTP"));
+                    int price = Convert.ToInt32(xmReadLeonPrice.GetAttribute("Price"));
+                    byte otp = Convert.ToByte(xmReadLeonPrice.GetAttribute("OTP"));
+
+                    if (price > fixedValue)
+                    {
+                        bw.Write((ushort)(fixedValue / 10));
+                        bw.Write(otp);
+                    }
+                    else
+                    {
+                        bw.Write((ushort)(price / 10));
+                        bw.Write(otp);
+                    }
+                    bw.Seek(1, SeekOrigin.Current);
+                }
+            }
+
+            bw.BaseStream.Position = (int)Enums.UsefulLocations.ItemsPrice_Ada;
+
+            while (xmReadAdaPrice.Read())
+            {
+                if (xmReadAdaPrice.NodeType == XmlNodeType.Element && xmReadAdaPrice.Name == "Item")
+                {
+                    ushort id = Convert.ToUInt16(xmReadAdaPrice.GetAttribute("ID"));
+                    bw.Write(id);
+                }
+
+                if (xmReadAdaPrice.NodeType == XmlNodeType.Element && xmReadAdaPrice.Name == "Value")
+                {
+                    int price = Convert.ToInt32(xmReadAdaPrice.GetAttribute("Price"));
+                    byte otp = Convert.ToByte(xmReadAdaPrice.GetAttribute("OTP"));
 
                     if (price > fixedValue)
                     {
@@ -57,6 +90,36 @@
                     bw.Write(set2);
                     bw.Write(result);
                 }
+            }
+        }
+
+        public void AmmoStack()
+        {
+            var posArray = Enum.GetValues(typeof(Enums.AmmoStackLocation));
+
+            for (int i = 0; i < posArray.Length; i++)
+            {
+                while (xmReadAmmoStack.Read())
+                {
+                    if (xmReadAmmoStack.NodeType == XmlNodeType.Element && xmReadAmmoStack.Name == "Stack")
+                    {
+                        bw.BaseStream.Seek(Convert.ToInt64(posArray.GetValue(i)), SeekOrigin.Begin);
+
+                        short Stack = Convert.ToInt16(xmReadAmmoStack.GetAttribute("Amount"));
+
+                        if (Stack >= fixedValueStack)
+                        {
+                            bw.Write(fixedValueStack);
+                            break;
+                        }
+                        else
+                        {
+                            bw.Write(Stack);
+                            break;
+                        }
+                    }
+                }
+                xmReadAmmoStack.Read();
             }
         }
 

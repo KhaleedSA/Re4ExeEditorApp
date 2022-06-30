@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Data.XML.ReadXML
+﻿namespace Re4ExeEditor.Data.XML.ReadXML
 {
     public class ReadXml
     {
@@ -13,6 +13,7 @@
                 readPlayer.Player();
                 readItem.ItemPrice();
                 readItem.ItemCombination();
+                readItem.AmmoStack();
                 readItem.ItemStock();
                 readHealing.Healing();
                 readWeapon.WeaponStats();

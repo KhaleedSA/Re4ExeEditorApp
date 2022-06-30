@@ -1,4 +1,4 @@
-﻿namespace Re4ExeExtractor.Data.XML.ReadXML
+﻿namespace Re4ExeEditor.Data.XML.ReadXML
 {
     public class ReadPlayer
     {
@@ -9,128 +9,23 @@
 
         public void Player()
         {
-            xmReadPlayer.Read();
+            var playerArray = Enum.GetValues(typeof(Enums.PlayerHp));
 
-            while (xmReadPlayer.Read())
+            for (int i = 0; i < playerArray.Length; i++)
             {
-                if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Player")
+                while (xmReadPlayer.Read())
                 {
-                    var s1 = xmReadPlayer.GetAttribute("Name");
+                    if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Health")
+                    {
+                        bw.BaseStream.Seek(Convert.ToInt64(playerArray.GetValue(i)) + 1, SeekOrigin.Begin);
 
-                    if (s1 == $"{Enums.PlayerHp.S_Leon:G}")
-                    {
-                        while (xmReadPlayer.Read())
-                        {
-                            if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Health")
-                            {
-                                var p1 = xmReadPlayer.GetAttribute("Value");
-                                bw.BaseStream.Position = (int)Enums.PlayerHp.S_Leon;
-                                bw.Seek(1, SeekOrigin.Current);
-                                bw.Write(Convert.ToInt32(p1));
-                                break;
-                            }
-                        }
-                    }
-                    if (s1 == $"{Enums.PlayerHp.M_Leon_Wesker:G}")
-                    {
-                        while (xmReadPlayer.Read())
-                        {
-                            if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Health")
-                            {
-                                var p2 = xmReadPlayer.GetAttribute("Value");
-                                bw.BaseStream.Position = (int)Enums.PlayerHp.M_Leon_Wesker;
-                                bw.Seek(1, SeekOrigin.Current);
-                                bw.Write(Convert.ToInt32(p2));
-                                break;
-                            }
-                        }
-                    }
-                    if (s1 == $"{Enums.PlayerHp.Unk1:G}")
-                    {
-                        while (xmReadPlayer.Read())
-                        {
-                            if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Health")
-                            {
-                                var p3 = xmReadPlayer.GetAttribute("Value");
-                                bw.BaseStream.Position = (int)Enums.PlayerHp.Unk1;
-                                bw.Seek(1, SeekOrigin.Current);
-                                bw.Write(Convert.ToInt32(p3));
-                                break;
-                            }
-                        }
-                    }
-                    if (s1 == $"{Enums.PlayerHp.SM_Ada:G}")
-                    {
-                        while (xmReadPlayer.Read())
-                        {
-                            if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Health")
-                            {
-                                var p4 = xmReadPlayer.GetAttribute("Value");
-                                bw.BaseStream.Position = (int)Enums.PlayerHp.SM_Ada;
-                                bw.Seek(1, SeekOrigin.Current);
-                                bw.Write(Convert.ToInt32(p4));
-                                break;
-                            }
-                        }
-                    }
-                    if (s1 == $"{Enums.PlayerHp.S_Ada:G}")
-                    {
-                        while (xmReadPlayer.Read())
-                        {
-                            if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Health")
-                            {
-                                var p5 = xmReadPlayer.GetAttribute("Value");
-                                bw.BaseStream.Position = (int)Enums.PlayerHp.S_Ada;
-                                bw.Seek(1, SeekOrigin.Current);
-                                bw.Write(Convert.ToInt32(p5));
-                                break;
-                            }
-                        }
-                    }
-                    if (s1 == $"{Enums.PlayerHp.Unk2:G}")
-                    {
-                        while (xmReadPlayer.Read())
-                        {
-                            if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Health")
-                            {
-                                var p6 = xmReadPlayer.GetAttribute("Value");
-                                bw.BaseStream.Position = (int)Enums.PlayerHp.Unk2;
-                                bw.Seek(1, SeekOrigin.Current);
-                                bw.Write(Convert.ToInt32(p6));
-                                break;
-                            }
-                        }
-                    }
-                    if (s1 == $"{Enums.PlayerHp.M_Hunk:G}")
-                    {
-                        while (xmReadPlayer.Read())
-                        {
-                            if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Health")
-                            {
-                                var p7 = xmReadPlayer.GetAttribute("Value");
-                                bw.BaseStream.Position = (int)Enums.PlayerHp.M_Hunk;
-                                bw.Seek(1, SeekOrigin.Current);
-                                bw.Write(Convert.ToInt32(p7));
-                                break;
-                            }
-                        }
-                    }
-                    if (s1 == $"{Enums.PlayerHp.M_Krauser:G}")
-                    {
-                        while (xmReadPlayer.Read())
-                        {
-                            if (xmReadPlayer.NodeType == XmlNodeType.Element && xmReadPlayer.Name == "Health")
-                            {
-                                var p8 = xmReadPlayer.GetAttribute("Value");
-                                bw.BaseStream.Position = (int)Enums.PlayerHp.M_Krauser;
-                                bw.Seek(1, SeekOrigin.Current);
-                                bw.Write(Convert.ToInt32(p8));
-                                break;
-                            }
-                        }
+                        int Value = Convert.ToInt32(xmReadPlayer.GetAttribute("Value"));
+
+                        bw.Write(Value);
                         break;
                     }
                 }
+                xmReadPlayer.Read();
             }
             fs.Close();
             xmReadPlayer.Close();
