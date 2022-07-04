@@ -2,6 +2,8 @@
 {
     public class Helper
     {
+        
+
         public int CheckItemName(Enums.ItemID checkID)
         {
             switch (checkID)
@@ -900,6 +902,7 @@
                 Enums.CustomFPLocation.TMP => $"{Enum.GetName(typeof(Enums.CustomFPLocation), Enums.CustomFPLocation.TMP)}",
                 Enums.CustomFPLocation.Chicago_TypeWriter => $"{Enum.GetName(typeof(Enums.CustomFPLocation), Enums.CustomFPLocation.Chicago_TypeWriter)}",
                 Enums.CustomFPLocation.HandCannon => $"{Enum.GetName(typeof(Enums.CustomFPLocation), Enums.CustomFPLocation.HandCannon)}",
+                Enums.CustomFPLocation.Knife => $"{Enum.GetName(typeof(Enums.CustomFPLocation), Enums.CustomFPLocation.Knife)}",
                 Enums.CustomFPLocation.Matilda => $"{Enum.GetName(typeof(Enums.CustomFPLocation), Enums.CustomFPLocation.Matilda)}",
                 Enums.CustomFPLocation.Krauser_Bow => $"{Enum.GetName(typeof(Enums.CustomFPLocation), Enums.CustomFPLocation.Krauser_Bow)}",
                 Enums.CustomFPLocation.RiotGun => $"{Enum.GetName(typeof(Enums.CustomFPLocation), Enums.CustomFPLocation.RiotGun)}",
@@ -934,5 +937,7 @@
                 _ => "Unknown"
             };
         }
+
+        
     }
 }

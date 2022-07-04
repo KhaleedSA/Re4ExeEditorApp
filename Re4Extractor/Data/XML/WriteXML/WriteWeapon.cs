@@ -96,6 +96,7 @@
                    select new XElement("wClass",
                           new XElement("Weapon",
                                new XAttribute("Name", wpFpArr.FirePowerName),
+                               new XAttribute("Offset", wpFpArr.FirePowerPos.ToString("X2")),
                           new XElement("FirePower",
                           new XElement("Lvl-1",
                                new XAttribute("Value", wpFpArr.FirePower1)),

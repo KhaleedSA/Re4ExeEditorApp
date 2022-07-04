@@ -6,7 +6,6 @@
         private static readonly WriteItem writeItem = new();
         private static readonly WriteHealing writeHealing = new();
         private static readonly WriteWeapon writeWeapon = new();
-
         public void WriteAllXml()
         {
             try

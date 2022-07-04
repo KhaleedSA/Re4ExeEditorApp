@@ -394,12 +394,12 @@
             TMP = 0x7FE64C,
             Chicago_TypeWriter = 0x7FE668,
             HandCannon = 0x7FE6BC,
+            Knife = 0x7FE6D8,
             Matilda = 0x7FE6F4,
             Krauser_Bow = 0x7FE828,
             RiotGun = 0x7FE8B4,
-            BowGun = 0x7FEA58
+            BowGun = 0x7FEA58,
         }
-
         public enum AmmoStackLocation
         {
             Unknown0 = 0x3041D8,
